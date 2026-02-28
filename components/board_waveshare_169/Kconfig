@@ -1,7 +1,7 @@
 menu "Waveshare 1.69 Board"
 
 config BOARD_LCD_SPI_HOST
-    int "LCD SPI host (2=SPI2, 3=SPI3)"
+    int "LCD SPI host (numeric ID as required by ESP-IDF SPI host enum)"
     range 2 3
     default 2
 
