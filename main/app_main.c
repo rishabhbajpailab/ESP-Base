@@ -9,8 +9,8 @@ static const char *TAG = "app_main";
 
 void app_main(void) {
     ESP_ERROR_CHECK(board_init());
-    ESP_ERROR_CHECK(ui_app_init());
     ESP_ERROR_CHECK(taskmgr_init());
+    ESP_ERROR_CHECK(ui_app_init());
     ESP_ERROR_CHECK(sensors_init());
     ESP_ERROR_CHECK(net_init());
 

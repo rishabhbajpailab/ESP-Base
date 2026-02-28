@@ -20,7 +20,7 @@ void ui_screens_build(void);
 void ui_screens_handle_touch(int x, int y, bool down);
 void ui_screens_update_telemetry(const ui_telemetry_t *tm);
 
-static lv_display_t *s_disp;
+static lv_disp_t *s_disp;
 
 static void poll_touch_timer(lv_timer_t *t) {
     (void)t;

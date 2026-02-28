@@ -1,3 +1,3 @@
 idf_component_register(SRCS "taskmgr.c"
                        INCLUDE_DIRS "include"
-                       REQUIRES freertos esp_timer)
+                       REQUIRES freertos esp_timer lvgl)
