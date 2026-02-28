@@ -1,0 +1,16 @@
+name: esp-idf-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: espressif/idf:v5.2.2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set target
+        run: idf.py set-target esp32s3
+      - name: Build
+        run: idf.py build
