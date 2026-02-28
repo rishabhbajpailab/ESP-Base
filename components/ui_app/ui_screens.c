@@ -141,9 +141,12 @@ static void anim_timer(lv_timer_t *timer) {
         s.frames = 0;
         s.fps_t0 = now;
     }
-    lv_label_set_text_fmt(s.status, "touch:%s %d,%d fps:%u bat:%d rtc:%s imu:%s",
-                          s.tm.touch_down ? "dn" : "up", s.tm.touch_x, s.tm.touch_y,
-                          s.tm.fps, s.tm.battery_mv, s.tm.rtc_str, s.tm.imu_ok ? "ok" : "na");
+    static char status_buf[128];
+    snprintf(status_buf, sizeof(status_buf),
+             "touch:%s %d,%d fps:%u bat:%d rtc:%s imu:%s",
+             s.tm.touch_down ? "dn" : "up", s.tm.touch_x, s.tm.touch_y,
+             s.tm.fps, s.tm.battery_mv, s.tm.rtc_str, s.tm.imu_ok ? "ok" : "na");
+    lv_label_set_text(s.status, status_buf);
 }
 
 void ui_screens_handle_touch(int x, int y, bool down) {
