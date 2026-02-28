@@ -109,6 +109,11 @@ void ui_app_handle_msg(const taskmgr_ui_msg_t *msg) {
             break;
         case TASKMGR_UI_MSG_TELEMETRY: {
             ui_telemetry_t tm;
+            if (msg->len < sizeof(tm)) {
+                ESP_LOGW(TAG, "Received telemetry message with invalid length %u (expected at least %u)",
+                         (unsigned)msg->len, (unsigned)sizeof(tm));
+                break;
+            }
             memcpy(&tm, msg->payload, sizeof(tm));
             ui_screens_update_telemetry(&tm);
             break;
