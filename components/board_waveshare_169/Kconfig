@@ -1,0 +1,74 @@
+menu "Waveshare 1.69 Board"
+
+config BOARD_LCD_SPI_HOST
+    int "LCD SPI host (numeric ID as required by ESP-IDF SPI host enum)"
+    range 2 3
+    default 2
+
+config BOARD_LCD_SPI_FREQ_HZ
+    int "LCD SPI frequency"
+    default 40000000
+
+choice BOARD_LCD_ROTATION
+    prompt "LCD rotation"
+    default BOARD_LCD_ROT_90
+    config BOARD_LCD_ROT_0
+        bool "0"
+    config BOARD_LCD_ROT_90
+        bool "90"
+    config BOARD_LCD_ROT_180
+        bool "180"
+    config BOARD_LCD_ROT_270
+        bool "270"
+endchoice
+
+config BOARD_I2C_PORT
+    int "I2C port"
+    default 0
+
+config BOARD_I2C_FREQ_HZ
+    int "I2C frequency"
+    default 400000
+
+config BOARD_BACKLIGHT_INVERT
+    bool "Backlight PWM invert"
+    default n
+
+config BOARD_BACKLIGHT_DEFAULT_PERCENT
+    int "Default backlight percent"
+    range 0 100
+    default 70
+
+config BOARD_ENABLE_TOUCH
+    bool "Enable touch"
+    default y
+
+config BOARD_TOUCH_USE_INT
+    bool "Use touch interrupt line"
+    default y
+
+config BOARD_ENABLE_BATTERY
+    bool "Enable battery ADC"
+    default y
+
+config BOARD_BAT_DIV_NUM
+    int "Battery divider numerator"
+    default 2
+
+config BOARD_BAT_DIV_DEN
+    int "Battery divider denominator"
+    default 1
+
+config BOARD_ENABLE_BUZZER
+    bool "Enable buzzer"
+    default y
+
+config BOARD_ENABLE_RTC
+    bool "Enable RTC (PCF85063)"
+    default y
+
+config BOARD_ENABLE_IMU
+    bool "Enable IMU (QMI8658)"
+    default y
+
+endmenu
