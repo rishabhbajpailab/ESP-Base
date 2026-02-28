@@ -31,7 +31,7 @@ static void poll_touch_timer(lv_timer_t *t) {
     esp_lcd_touch_read_data(touch);
     bool down = esp_lcd_touch_get_coordinates(touch, x, y, NULL, &cnt, 1);
     if (down && cnt > 0) {
-        ESP_LOGI(TAG, "touch mapped x=%u y=%u", x[0], y[0]);
+        ESP_LOGD(TAG, "touch mapped x=%u y=%u", x[0], y[0]);
         ui_screens_handle_touch(x[0], y[0], true);
     } else {
         ui_screens_handle_touch(0, 0, false);
